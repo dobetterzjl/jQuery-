@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<input type="checkbox" name="music">钢琴</input>
+<input type="checkbox" name="music">小提琴</input>
+<input type="checkbox" name="music">吉他</input>
+<input type="checkbox" name="music">古筝</input>
+</br>
+<input type="button" value="全选" id="selectAll"></input>
+<input type="button" value="全不选" id="selectNo"></input>
+<input type="button" value="反选" id="selectf"></input>
+</body>
+<script src="jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#selectAll').on('click',function(){
+			$('[name]').prop('checked' ,true);
+			})
+		$('#selectNo').on('click',function(){
+			$('[name]').prop('checked',false);
+		
+		})
+	$('#selectf').on('click',function(){
+		$('[name]').each(function(index,elem){
+			if($(this).prop('checked')){
+				$(this).prop('checked',false);
+			}else if(!$(this).prop('checked')){
+				$(this).prop('checked',true);
+			}
+			//this.checked=!this.checked;
+		});
+	});
+			
+	});
+
+</script>
+</html>
