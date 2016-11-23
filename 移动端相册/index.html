@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width user-scalable=no initial-scale= 1.0, maximum-scale=1.0, minimum-scale=1.0'>
+	<title>移动端相册</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	body{
+		background: black;
+	}
+	
+		#container li{
+			float: left;
+			margin-right: 2px;
+		}
+		#container li:nth-child(4n){
+			margin-right: 0;
+		}
+		#big-img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="container"></ul>
+	<div id="big-img"></div>
+	<script src="zepto.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $container = $('#container');
+			var $bigImg = $('#big-img');
+			var num=12;
+			var html='';
+			var iPadding=2; 
+			var nowIdx=0;
+			var iWidth = $(document.body).width();
+			for(var i=0;i<num;i++){
+				html+='<li><img src="img/'+(i+1)+'.jpg"></li>';
+			}
+			$container.append(html);
+			$('img',$container).css({
+				width:(iWidth-3*iPadding)/4,
+				height:(iWidth-3*iPadding)/4
+			});
+			$container.on('tap','li',function(){
+				nowIdx=$(this).index();
+				alert(123);
+				var src = $(this).children.attr('src');
+				$container.hide();
+				$bigImg.show().css({
+					background:'url('+src+') no-repeat center',
+					backgroundSize:'contain'
+				});
+
+			});
+			$bigImg.on('tap','li',function(){
+				$bigImg.hide();
+				$container.show();
+				
+			}).on('swipeLeft',function(){
+				nowIdx++;
+				if (nowIdx==num) {
+					nowIdx=0;
+				}
+				changeImg('img/'+(nowIdx+1)+'.jpg');
+
+			}.on('swipeRight'),function(){
+				nowIdx--;
+				if (nowIdx==-1) {
+					nowIdx=num-1;
+				}
+				changeImg('img/'+(nowIdx+1)+'.jpg');
+			});
+			function changeImg(src){
+				$bigImg.css({
+					background:'url('+src+') no-repeat center',
+					backgroundSize:'contain'
+				});
+			} 
+		});
+	</script>
+
+</body>
+</html>

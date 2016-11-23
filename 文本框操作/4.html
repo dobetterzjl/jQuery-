@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+	</title>
+	<style type="text/css">
+		.bg{
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<fieldset>
+		<legend>个人基本信息</legend>
+		<div>
+			<label for="username">名称</label>
+			<input type="text" name="" id="username" value="名称" />
+		</div>
+		<div>
+			<label for="pass">密码:</label>
+			<input type="password" name="" id="pass" value="123" />
+		</div>
+		<div>
+			<label for="msg">详细信息：</label>
+			<textarea id="msg" rows="2" cols="20">详细信息</textarea>
+		</div>
+	</fieldset>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			$(':input').on('focus',function(){
+				$(this).addClass('bg');	
+				if(this.value==this.defaultValue){
+					this.value="";
+				}
+			}).on('blur',function(){
+				$(this).removeClass('bg');
+				if (this.value=="") {
+					this.value=this.defaultValue;
+				}
+			});
+		});
+	</script>
+</body>
+</html>
