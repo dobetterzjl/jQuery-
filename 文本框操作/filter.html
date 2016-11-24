@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		form{
+			margin: 30px;
+		}
+		#tab thead tr{
+			border-bottom: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		筛选：<input type="text" name="" id="ipt">
+		<table id="tab">
+			<thead>
+				<tr>
+					 <th>姓名：</th> 
+					 <th>性别：</th>
+					 <th>地址：</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>李四</td>
+					<td>男</td>
+					<td>北京</td>
+				</tr>
+				<tr>
+					<td>张三</td>
+					<td>男</td>
+					<td>上海</td>
+				</tr>
+				<tr>
+					<td>南柱赫</td>
+					<td>男</td>
+					<td>首尔</td>
+				</tr>
+				<tr>
+					<td>林允儿</td>
+					<td>女</td>
+					<td>首尔</td>
+				</tr>
+				<tr>
+					<td>李诗函</td>
+					<td>女</td>
+					<td>南京</td>
+				</tr>
+				<tr>
+					<td>李诗</td>
+					<td>女</td>
+					<td>北京</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$tr = $('#tab tbody tr');
+			$('#ipt').on('keyup',function(){
+				// $tr.hide();
+				// $('#tab tbody tr:contains('+this.value+')').show();
+				$tr.hide().filter(':contains('+this.value+')').show();
+			});
+		}).trigger('onkeyup');//根据IE版本特性刷新后文本框文字保留问题做的优化
+	</script>
+</body>
+</html>
