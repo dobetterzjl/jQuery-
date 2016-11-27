@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		/*.tooltip{
+			padding: 5px 10px;
+			background-color: #000;
+			color: #fff;
+			border-radius: 4px;
+			position: absolute;
+		}
+	 .tooltip-arrow{
+			width: 0;
+			border:10px solid transparent;
+			border-top-color: #000;
+			position: absolute;
+			left: 50%;
+			margin-left:-5px;
+			bottom: -20px; 
+		}
+		.tooltip-inner{
+			height: 20px;
+			position: absolute;
+			border-radius: 4px;
+		}*/
+		.tooltip{
+			background-color: #000;
+			color: #fff;
+			position: absolute;
+			padding: 5px 10px;
+			border-radius: 5px;
+		}
+		.tooltip-arrow{
+			width: 0;
+			border: 10px solid transparent;
+			
+			position: absolute;
+			
+		}
+		.left-arrow{
+			border-right-color: #000;
+			top: 50%;
+			margin-top:-10px;
+			left: -20px;
+		}
+		.right-arrow{
+			border-left-color: #000;
+			top: 50%;
+			margin-top: -10px;
+			right: -20px;
+		}
+		.bottom-arrow{
+			border-top-color: #000;
+			left: 50%
+			margin-left:-10px;
+			bottom: -20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div class="tooltip">
+		<div class="tooltip-arrow"></div>
+		<div class="tooltip-inner">this is a tooltip</div>
+	</div> -->
+	<div class="div1" style="margin: 200px auto;" >
+		<a href="" class="mytooltip" title="hahahahhha">hello world</a>
+		<br/>
+		<a href="">aaaa</a>
+	</div>
+	
+	<script src="jquery-2.1.4.min.js"></script>
+	<script src="jquery.tooltip.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.mytooltip').tooltip();
+		});
+		
+	</script>
+</body>
+</html>
