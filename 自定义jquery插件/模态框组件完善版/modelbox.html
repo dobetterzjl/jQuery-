@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="modelbox.css">
+</head>
+<body>
+	<button id="btn">click</button>
+	<!-- <div class="dialog-mask"></div>
+	<div class="dialog-container">
+		<div class="dialog-wrapper">
+			<div class="dialog-header">
+				<span class="dialog-title">this is header</span>
+				<span class="dialog-close">[x]</span>
+			</div>
+			<div class="dialog-content">this is a content</div>
+			<div class="dialog-footer">this is footer</div>
+		</div>
+	</div> -->
+	<script src="jquery-2.1.4.min.js"></script>
+	<script src="jquery.dialog.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').on('click',function(){
+				dialog({
+					title:'this is a title',
+					url:'content.html',
+					width:500,
+					height:500,
+					footer: 'this is a footer',
+					callback:function(){
+						$('#btn1').on('click',function(){
+							alert('aaa');
+						});
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>
